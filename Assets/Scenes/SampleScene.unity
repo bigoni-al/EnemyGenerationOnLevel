@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dff5a9a1e80cee49a567a8efe29e08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 5820403492376375573, guid: c592970f33a5bf4479536b35505a4b51, type: 3}
+  _enemyPrefab: {fileID: 1950962065118622549, guid: 729e1ecb2dcd1a24291726d4d9eec868, type: 3}
   _generationPoints:
   - {fileID: 896818280}
   - {fileID: 547779812}
