@@ -1,16 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private Transform[] _generationPoints;
+    [SerializeField] private List<Enemy> _enemyPrefabs;
+    [SerializeField] private List<Transform> _spawnPoints;
+    [SerializeField] private List<Target> _targets;
 
+    private int _indexRandomMin = 0;
+    private int _indexRandomMax = 2;
     private float _timeInterval = 2f;
-    private float _directionY = 0f;
-    private float _directionX = 1f;
-    private float _directionZ = 1f;
-    private int _indexPointFirst = 0;
     private bool _isWork = true;
     private WaitForSecondsRealtime _wait;
 
@@ -30,29 +30,9 @@ public class Spawner : MonoBehaviour
         {
             yield return _wait;
 
-            int indexPoint = Random.Range(_indexPointFirst, _generationPoints.Length);
-            Enemy newEnemy = Instantiate(_enemyPrefab, _generationPoints[indexPoint].transform.position, Quaternion.identity);
-            CreateMovementDirection(newEnemy);
-        }
-    }
-
-    private void CreateMovementDirection(Enemy newEnemy)
-    {
-        Vector3 newDirection;
-        bool haveDirection = false;
-
-        while (haveDirection == false)
-        {
-            float directionX = Random.Range(-_directionX, _directionX);
-            float directionZ = Random.Range(-_directionZ, _directionZ);
-            newDirection = new Vector3(directionX, _directionY, directionZ);
-            newDirection.Normalize();
-
-            if (newDirection != Vector3.zero)
-            {
-                haveDirection = true;
-                newEnemy.ChangeMovementDirection(newDirection);
-            }
+            int indexRandom = Random.Range(_indexRandomMin, _indexRandomMax + 1);
+            Enemy newEnemy = Instantiate(_enemyPrefabs[indexRandom], _spawnPoints[indexRandom].transform.position, Quaternion.identity);
+            newEnemy.GetTarget(_targets[indexRandom]);
         }
     }
 }
