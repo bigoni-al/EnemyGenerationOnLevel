@@ -1,15 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private List<Enemy> _enemyPrefabs;
-    [SerializeField] private List<Transform> _spawnPoints;
-    [SerializeField] private List<Target> _targets;
+    [SerializeField] private SpawnerPoint[] _spawnerPoints;
 
-    private int _indexRandomMin = 0;
-    private int _indexRandomMax = 2;
+    private int _indexFirst = 0;
     private float _timeInterval = 2f;
     private bool _isWork = true;
     private WaitForSecondsRealtime _wait;
@@ -21,18 +17,17 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(CreateEnemies());
+        StartCoroutine(ActivateSpawnPoints());
     }
 
-    private IEnumerator CreateEnemies()
+    private IEnumerator ActivateSpawnPoints()
     {
         while (_isWork)
         {
             yield return _wait;
 
-            int indexRandom = Random.Range(_indexRandomMin, _indexRandomMax + 1);
-            Enemy newEnemy = Instantiate(_enemyPrefabs[indexRandom], _spawnPoints[indexRandom].transform.position, Quaternion.identity);
-            newEnemy.GetTarget(_targets[indexRandom]);
+            int indexRandom = Random.Range(_indexFirst, _spawnerPoints.Length);
+            _spawnerPoints[indexRandom].CreateEnemy();
         }
     }
 }

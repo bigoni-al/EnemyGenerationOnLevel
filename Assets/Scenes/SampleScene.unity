@@ -247,8 +247,9 @@ GameObject:
   - component: {fileID: 547779812}
   - component: {fileID: 547779815}
   - component: {fileID: 547779814}
+  - component: {fileID: 547779816}
   m_Layer: 0
-  m_Name: SpawnPoint2
+  m_Name: SpawnerPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,6 +320,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547779811}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &547779816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547779811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9a4ae537fde9c48ab17e9d39f243db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 5154169745056021613, guid: f5d22e795c235ab41812a5c4f5269cb5, type: 3}
+  _target: {fileID: 1733977422}
+  _spawnerPoint: {fileID: 547779812}
 --- !u!4 &553902149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1562775006006707473, guid: 40b722d348b73a548b384ddb6d30595e, type: 3}
@@ -509,8 +525,9 @@ GameObject:
   - component: {fileID: 855752885}
   - component: {fileID: 855752888}
   - component: {fileID: 855752887}
+  - component: {fileID: 855752889}
   m_Layer: 0
-  m_Name: SpawnPoint3
+  m_Name: SpawnerPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,6 +598,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855752884}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &855752889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855752884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9a4ae537fde9c48ab17e9d39f243db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 2531241172034638031, guid: 415efdb3cbaed964dbd72b3f560d5678, type: 3}
+  _target: {fileID: 1546753878}
+  _spawnerPoint: {fileID: 855752885}
 --- !u!1 &896818279
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,8 +624,9 @@ GameObject:
   - component: {fileID: 896818280}
   - component: {fileID: 896818283}
   - component: {fileID: 896818282}
+  - component: {fileID: 896818284}
   m_Layer: 0
-  m_Name: SpawnPoint1
+  m_Name: SpawnerPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,6 +697,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896818279}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &896818284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896818279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9a4ae537fde9c48ab17e9d39f243db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 7961701506338370191, guid: 6c8a456a212e4054eaa2b543c23dc6fe, type: 3}
+  _target: {fileID: 621110337}
+  _spawnerPoint: {fileID: 896818280}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,18 +1265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dff5a9a1e80cee49a567a8efe29e08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefabs:
-  - {fileID: 7961701506338370191, guid: 6c8a456a212e4054eaa2b543c23dc6fe, type: 3}
-  - {fileID: 5154169745056021613, guid: f5d22e795c235ab41812a5c4f5269cb5, type: 3}
-  - {fileID: 2531241172034638031, guid: 415efdb3cbaed964dbd72b3f560d5678, type: 3}
-  _spawnPoints:
-  - {fileID: 896818280}
-  - {fileID: 547779812}
-  - {fileID: 855752885}
-  _targets:
-  - {fileID: 621110337}
-  - {fileID: 1733977422}
-  - {fileID: 1546753878}
+  _spawnerPoints:
+  - {fileID: 896818284}
+  - {fileID: 547779816}
+  - {fileID: 855752889}
 --- !u!4 &1892926726
 Transform:
   m_ObjectHideFlags: 0
